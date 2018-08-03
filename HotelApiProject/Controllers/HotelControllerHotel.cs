@@ -39,13 +39,27 @@ namespace HotelApiProject.Controllers
         {
             try
             {
-                return new ApiResponse
+                if(HotelList.Count!=0)
                 {
-                    HotelInfo = HotelList,
-                    Status = Status.Success,
-                    StatusCode = 200,
-                    StatusMessage = "List Of Hotels Successfully Sent"
-                };
+                    return new ApiResponse
+                    {
+                        HotelInfo = HotelList,
+                        Status = Status.Success,
+                        StatusCode = 200,
+                        StatusMessage = "Success"
+                    };
+                }
+                else
+                {
+                    return new ApiResponse
+                    {
+                        HotelInfo = HotelList,
+                        Status = Status.Success,
+                        StatusCode = 400,
+                        StatusMessage = "Empty Data"
+                    };
+                }
+                
             }
             catch (Exception e)
             {
@@ -73,7 +87,7 @@ namespace HotelApiProject.Controllers
                 {
                     Status = Status.Success,
                     StatusCode = 200,
-                    StatusMessage = "List Of Hotels Successfully Sent"
+                    StatusMessage = "Succesfully Deleted"
                 };
             }
             else
