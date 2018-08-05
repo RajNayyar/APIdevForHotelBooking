@@ -11,8 +11,6 @@ namespace HotelApiProject.Models
         public Status Status;
         public int StatusCode;
         public string StatusMessage;
-
-
     }
 
     public enum Status
